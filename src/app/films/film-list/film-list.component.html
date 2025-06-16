@@ -1,0 +1,37 @@
+
+<mat-card>
+  <mat-card-title>🎬 Lista de Filmes</mat-card-title>
+  <mat-table [dataSource]="films" class="mat-elevation-z2">
+
+    <!-- Nome + Gênero -->
+    <ng-container matColumnDef="descricao">
+      <mat-header-cell *matHeaderCellDef> Descrição </mat-header-cell>
+      <mat-cell *matCellDef="let film">
+        <strong>{{ film.nome }}</strong><br />
+        <small>{{ film.genre }}</small>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Status -->
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let film">
+        {{ getStatusLabel(film) }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Ação: checkbox -->
+    <ng-container matColumnDef="acao">
+      <mat-header-cell *matHeaderCellDef> Marcar </mat-header-cell>
+      <mat-cell *matCellDef="let film">
+        <mat-checkbox [checked]="film.watched" (change)="toggleWatched(film)">
+        </mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Cabeçalho e linhas -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+</mat-card>
