@@ -1,6 +1,7 @@
 export class Film {
   id!: number;
-  nome!: string;
+  name!: string;
   genre!: string;
+  movieTime!: string;
   watched!: boolean;
 }

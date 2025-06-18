@@ -1,10 +1,10 @@
 <mat-toolbar color="primary" class="mat-elevation-z4">
   <a routerLink="/" class="logo">
-    <img src="https://cdn.pixabay.com/photo/2022/08/30/07/46/sakura-7420568_1280.png" alt="Logo da Empresa" />
-    <span class="logo-text">Sakura Stream</span>
+    <img src="flor-de-cerejeira.png" alt="Logo da Empresa" />
+    <span class="text-logo" [routerLink]="['']">Sakura Stream</span>
   </a>
   <span class="spacer"></span>
-  <button mat-icon-button aria-label="Home" matTooltip="Ir para Home">
+  <button mat-icon-button aria-label="Home" [routerLink]="['']" matTooltip="Ir para Home">
     <mat-icon>home</mat-icon>
   </button>
   <button mat-icon-button aria-label="Configurações" matTooltip="Configurações">

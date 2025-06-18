@@ -10,9 +10,14 @@ import {
   MatHeaderRow,
   MatHeaderRowDef,
   MatRow, MatRowDef,
-  MatTable
+  MatTable, MatTableDataSource
 } from '@angular/material/table';
 import {MatCheckbox} from '@angular/material/checkbox';
+import {FilmsService} from '../shared/films.service';
+import {MatFabButton} from '@angular/material/button';
+import {MatIcon} from '@angular/material/icon';
+import {MatTooltip} from '@angular/material/tooltip';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-film-list',
@@ -29,20 +34,25 @@ import {MatCheckbox} from '@angular/material/checkbox';
     MatHeaderCellDef,
     MatCellDef,
     MatHeaderRowDef,
-    MatRowDef
+    MatRowDef,
+    MatIcon,
+    MatFabButton,
+    MatTooltip,
+    RouterLink
   ],
   templateUrl: './film-list.component.html',
   styleUrl: './film-list.component.scss'
 })
 
 export class FilmListComponent {
-displayedColumns: string[] = ['descricao','status','acao']
+  dataSource = new MatTableDataSource<Film>();
 
-  films: Film[] = [
-    { id: 1, nome: 'Interestelar', genre: 'Ficção científica', watched: false },
-    { id: 2, nome: 'O Poderoso Chefão', genre: 'Crime', watched: true },
-    { id: 3, nome: 'A Origem', genre: 'Ação/Suspense', watched: false }
-  ];
+  constructor(private filmService: FilmsService) {
+    this.dataSource.data = this.filmService.getFilms();
+  }
+
+  displayedColumns: string[] = ['descricao','genero','duracao','status','acao']
+
 
   toggleWatched(film: Film): void {
     film.watched = !film.watched;

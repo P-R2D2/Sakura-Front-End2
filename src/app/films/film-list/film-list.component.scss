@@ -23,3 +23,10 @@ mat-header-cell, mat-cell {
 mat-checkbox {
   margin-left: 8px;
 }
+
+.fab-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+}

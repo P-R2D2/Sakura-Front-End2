@@ -6,11 +6,11 @@ import {MatIconButton} from '@angular/material/button';
 import {MatTooltip} from '@angular/material/tooltip';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-home',
   imports: [RouterOutlet, MatToolbar, MatIcon, MatIconButton, RouterLink, MatTooltip],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Sakura2';
+  title = 'Sakura Stream';
 }

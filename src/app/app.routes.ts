@@ -5,5 +5,4 @@ import {FilmListComponent} from './films/film-list/film-list.component';
 export const routes: Routes = [
   {'path': 'list', component: FilmListComponent},
   {'path': 'form', component: FilmFormComponent},
-
 ];

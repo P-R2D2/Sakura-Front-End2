@@ -1,14 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-body, html {
-  margin: 0;
-  padding: 0;
-  background-color: #000;
-  color: #fff;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  height: 100%;
-}
-
 .mat-toolbar {
   background-color: #111 !important; /* tom levemente diferente de preto */
   color: white !important;
@@ -20,5 +11,12 @@ body, html {
   background-color: #000;
   color: white;
 }
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+}

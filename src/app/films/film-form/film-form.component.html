@@ -5,9 +5,12 @@
       </mat-card-header>
     </mat-card-title>
   <mat-card-content>
+    <mat-form-field>
+      <input [value]="film.name">
+    </mat-form-field>
     <mat-card-actions>
       <button mat-raised-button color="primary">Salvar</button>
-      <button mat-raised-button color="primary">Cancelar</button>
+      <button mat-raised-button color="primary" [routerLink]="['/list']">Cancelar</button>
     </mat-card-actions>
   </mat-card-content>
 </mat-card>
