@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle} from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
 import {FilmsService} from '../shared/films.service';
-import {MatFormField} from '@angular/material/input';
+import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {Film} from '../shared/film';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 
 @Component({
@@ -17,14 +18,35 @@ import {RouterLink} from '@angular/router';
     MatCardActions,
     MatButton,
     MatFormField,
-    RouterLink
+    RouterLink,
+    MatLabel,
+    MatInput,
+    FormsModule
   ],
   templateUrl: './film-form.component.html',
   styleUrl: './film-form.component.scss'
 })
 export class FilmFormComponent {
-  film: Film = {id: 0, name: '', genre: '', movieTime:'', watched: false};
-  constructor(private filmService: FilmsService) {
 
+  film!: Film;
+
+  constructor(private filmService: FilmsService,
+  private router: Router) {
+    this.initFilm()
+  }
+
+  initFilm(){
+    this.film = {id: 0, name: '', genre: '', movieTime:'', watched: false}
+  }
+
+  addFilm() {
+    this.filmService.addFilm(this.film);
+    this.initFilm();
+    this.router.navigate(['/list'])
+  }
+
+  refreshField(nomeFilme: string) {
+    this.film.name = nomeFilme
+    console.log(nomeFilme)
   }
 }

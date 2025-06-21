@@ -18,6 +18,7 @@ import {MatFabButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
 import {MatTooltip} from '@angular/material/tooltip';
 import {RouterLink} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-film-list',
@@ -38,7 +39,8 @@ import {RouterLink} from '@angular/router';
     MatIcon,
     MatFabButton,
     MatTooltip,
-    RouterLink
+    RouterLink,
+    FormsModule
   ],
   templateUrl: './film-list.component.html',
   styleUrl: './film-list.component.scss'

@@ -15,8 +15,8 @@ export class FilmsService {
   private loadFilms() {
     this.films = [
       {id: 1, name: 'Interestelar', genre: 'Ficção científica', movieTime: '2hrs', watched: false},
-      {id: 2, name: 'O Poderoso Chefão', genre: 'Crime', movieTime: '1.5hr', watched: true},
-      {id: 3, name: 'A Origem', genre: 'Ação/Suspense', movieTime: '1hr', watched: false,},
+      {id: 2, name: 'O Poderoso Chefão', genre: 'Crime', movieTime: '1.5hrs', watched: true},
+      {id: 3, name: 'A Origem', genre: 'Ação/Suspense', movieTime: '1hrs', watched: false,},
       {id: 4, name: 'Planeta dos Macacos', genre: 'Ação', movieTime: '2hrs', watched: false},
     ];
   }
@@ -26,7 +26,9 @@ export class FilmsService {
   }
 
   addFilm(film: Film) {
-    film.id = this.films[this.films.length-1].id+1
+    let length = this.films.length ?? 0;
+    let film1 = this.films[length - 1];
+    film.id = (film1.id ?? 0) + 1;
     film.watched = false;
     this.films.push(film);
   }

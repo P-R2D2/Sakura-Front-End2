@@ -1,15 +1,21 @@
 <mat-card>
-    <mat-card-title>
-      <mat-card-header class="header">
+  <mat-card-title>
+    <mat-card-header class="header">
       Cadastro de novo filme
-      </mat-card-header>
-    </mat-card-title>
+    </mat-card-header>
+  </mat-card-title>
+
   <mat-card-content>
-    <mat-form-field>
-      <input [value]="film.name">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome do filme</mat-label>
+      <input matInput
+             [(ngModel)]="film.name"
+             (ngModelChange)="refreshField($event)"
+             placeholder="Filme">
     </mat-form-field>
+
     <mat-card-actions>
-      <button mat-raised-button color="primary">Salvar</button>
+      <button mat-raised-button color="primary" (click)="addFilm()">Salvar</button>
       <button mat-raised-button color="primary" [routerLink]="['/list']">Cancelar</button>
     </mat-card-actions>
   </mat-card-content>
