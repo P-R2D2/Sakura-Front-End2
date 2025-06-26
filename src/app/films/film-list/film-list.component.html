@@ -53,6 +53,15 @@
       </mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef> Apagar </mat-header-cell>
+      <mat-cell *matCellDef="let film">
+        <button mat-icon-button (click)="delete(film)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
 
     <!-- Cabeçalho e linhas -->
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
