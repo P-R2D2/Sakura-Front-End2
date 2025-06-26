@@ -5,7 +5,7 @@
 
     <!-- Nome  -->
     <ng-container matColumnDef="descricao">
-      <mat-header-cell *matHeaderCellDef> Descrição </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
       <mat-cell *matCellDef="let film">
         {{ film.name }}
       </mat-cell>
@@ -35,13 +35,24 @@
     </ng-container>
 
     <!-- Ação: checkbox -->
-    <ng-container matColumnDef="acao">
+    <ng-container matColumnDef="check">
       <mat-header-cell *matHeaderCellDef> Marcar </mat-header-cell>
       <mat-cell *matCellDef="let film">
         <mat-checkbox [checked]="film.watched" (change)="toggleWatched(film)">
         </mat-checkbox>
       </mat-cell>
     </ng-container>
+
+    <!--Edição-->
+    <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef> Editar </mat-header-cell>
+      <mat-cell *matCellDef="let film">
+        <button mat-icon-button [routerLink]="['/form',film.id]">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
 
     <!-- Cabeçalho e linhas -->
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

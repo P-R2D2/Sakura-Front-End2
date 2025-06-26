@@ -14,7 +14,7 @@ import {
 } from '@angular/material/table';
 import {MatCheckbox} from '@angular/material/checkbox';
 import {FilmsService} from '../shared/films.service';
-import {MatFabButton} from '@angular/material/button';
+import {MatFabButton, MatIconButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
 import {MatTooltip} from '@angular/material/tooltip';
 import {RouterLink} from '@angular/router';
@@ -40,7 +40,8 @@ import {FormsModule} from '@angular/forms';
     MatFabButton,
     MatTooltip,
     RouterLink,
-    FormsModule
+    FormsModule,
+    MatIconButton
   ],
   templateUrl: './film-list.component.html',
   styleUrl: './film-list.component.scss'
@@ -53,7 +54,7 @@ export class FilmListComponent {
     this.dataSource.data = this.filmService.getFilms();
   }
 
-  displayedColumns: string[] = ['descricao','genero','duracao','status','acao']
+  displayedColumns: string[] = ['descricao','genero','duracao','status','check','edit']
 
 
   toggleWatched(film: Film): void {

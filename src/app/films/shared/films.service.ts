@@ -25,6 +25,10 @@ export class FilmsService {
      return this.films;
   }
 
+  getFilm(id: number) {
+    return this.films.find(film => film.id === id);
+  }
+
   addFilm(film: Film) {
     let length = this.films.length ?? 0;
     let film1 = this.films[length - 1];
@@ -37,4 +41,10 @@ export class FilmsService {
     this.films = this.films.filter(film => film.id !== film.id);
   }
 
+  updateFilm(film: Film) {
+    const filmDataBase = this.getFilm(film.id??0)
+    filmDataBase!.name = film.name
+    filmDataBase!.genre = film.genre
+    filmDataBase!.movieTime = film.movieTime
+  }
 }
