@@ -38,7 +38,7 @@ export class FilmsService {
   }
 
   removeFilm(id: number) {
-    this.films = this.films.filter(film => film.id !== film.id);
+      this.films = this.films.filter(film => film.id !== id);
   }
 
   updateFilm(film: Film) {

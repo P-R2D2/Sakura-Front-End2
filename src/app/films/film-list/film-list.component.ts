@@ -66,7 +66,7 @@ export class FilmListComponent {
   }
 
   delete(film: Film) {
-    this.filmService.removeFilm(film.id)
+    this.filmService.removeFilm(film.id ?? 0)
     this.updateTable();
   }
 

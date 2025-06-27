@@ -44,7 +44,7 @@ export class FilmFormComponent {
   }
 
 
-  private validate(filmValue: Film) {
+  validate(filmValue: Film) {
     if (!filmValue.name) {
       alert('E impossivel que um filme nao possua um nome')
       return false;
@@ -94,6 +94,8 @@ export class FilmFormComponent {
         this.film = film;
         this.filmValue.id = film.id ?? 0;
         this.filmValue.name = film.name;
+        this.filmValue.genre = film.genre;
+        this.filmValue.movieTime = film.movieTime;
       }
     }
 
